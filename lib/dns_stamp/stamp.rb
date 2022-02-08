@@ -9,16 +9,22 @@ module DNSStamp
       raise DNSStampArgumentError, "Invalid prefix" unless stamp_string.delete_prefix! PREFIX
 
       stamp_data = StringIO.new(Base64.urlsafe_decode64(stamp_string))
-      @protocol_byte = stamp_data.getbyte
+
+      @@protocol_byte = stamp_data.getbyte
+      @@reader = Reader.new(stamp_data)
 
       validate_protocol
-      parse(stamp_data)
+      parse
     ensure
       stamp_data.close
     end
 
     class << self
       private
+
+      def reader
+        @@reader
+      end
 
       def protocols_mapping
         @protocols_mapping ||= PROTOCOLS.map do |protocol|
@@ -27,11 +33,11 @@ module DNSStamp
       end
 
       def validate_protocol
-        raise DNSStampInvalidProtocolError, "Unsupported protocol" unless protocols_mapping.key? @protocol_byte
+        raise DNSStampInvalidProtocolError, "Unsupported protocol" unless protocols_mapping.key? @@protocol_byte
       end
 
-      def parse(data)
-        protocols_mapping[@protocol_byte].send(:parse, data)
+      def parse
+        protocols_mapping[@@protocol_byte].send(:parse)
       end
     end
   end

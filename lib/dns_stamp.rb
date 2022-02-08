@@ -4,6 +4,9 @@ require "stringio"
 require "dns_stamp/errors"
 require "dns_stamp/version"
 
+require "dns_stamp/reader"
+require "dns_stamp/props"
+
 require "dns_stamp/stamp"
 require "dns_stamp/dnscrypt"
 require "dns_stamp/doh"
