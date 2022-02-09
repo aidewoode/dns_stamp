@@ -9,7 +9,7 @@ module DNSStamp
     end
 
     def props
-      Props.new(data.read(8))
+      Props.decode(data.read(8))
     end
 
     def lp_raw
