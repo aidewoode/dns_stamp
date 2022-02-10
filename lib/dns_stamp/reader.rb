@@ -1,4 +1,14 @@
 module DNSStamp
+  # len(x) is a single byte representation of the length of x, in bytes.
+  # Strings don’t have to be zero-terminated and do not require invidual encoding.
+  #
+  # vlen(x) is equal to len(x) if x is the last element of a set, and 0x80 | len(x) if there are more elements in the set.
+  #
+  # LP(x) is len(x) || x, i.e x prefixed by its length.
+  #
+  # VLP(x1, x2, ...xn) encodes a set, as vlen(x1) || x1 || vlen(x2) || x2 ... || vlen(xn) || xn.
+  # Since vlen(xn) == len(xn) (length of the last element doesn’t have the high bit set),
+  # for a set with a single element, we have VLP(x) == LP(x).
   class Reader
     VLEN_PREFIX = 0x80
 

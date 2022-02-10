@@ -1,4 +1,10 @@
 module DNSStamp
+  # Props is a little-endian 64 bit value that represents informal properties about the resolver.
+  # It is a logical OR combination of the following values:
+  #
+  # 1: the server supports DNSSEC
+  # 2: the server doesn’t keep logs
+  # 4: the server doesn’t intentionally block domains
   class Props
     DNSSEC = 1
     NO_LOG = 2

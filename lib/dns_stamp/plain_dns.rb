@@ -1,4 +1,11 @@
 module DNSStamp
+  # Plain DNS stamps format:
+  #
+  # 0x00 || props || LP(addr [:port])
+  #
+  # addr is the IP address of the server.
+  # IPv6 strings must be included in square brackets: [fe80::6d6d:f72c:3ad:60b8].
+  # Scopes are permitted.
   class PlainDNS < Stamp
     PROTOCOL_ID = 0x00
 
