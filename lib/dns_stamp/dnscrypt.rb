@@ -17,7 +17,7 @@ module DNSStamp
     attr_accessor :props, :address, :public_key, :provider_name
 
     def initialize(props: {}, address: "", public_key: "", provider_name: "")
-      @props = Props.new(props)
+      @props = Props.new(**props)
       @address = address
       @public_key = public_key
       @provider_name = provider_name

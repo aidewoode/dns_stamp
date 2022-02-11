@@ -25,7 +25,7 @@ module DNSStamp
     attr_accessor :props, :address, :hashes, :host_name, :path, :bootstrap_ips
 
     def initialize(props: {}, address: "", hashes: [], host_name: "", path: "", bootstrap_ips: [])
-      @props = Props.new(props)
+      @props = Props.new(**props)
       @address = address
       @hashes = hashes
       @host_name = host_name

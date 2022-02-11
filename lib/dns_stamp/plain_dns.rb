@@ -12,7 +12,7 @@ module DNSStamp
     attr_accessor :props, :address
 
     def initialize(props: {}, address: "")
-      @props = Props.new(props)
+      @props = Props.new(**props)
       @address = address
     end
 
