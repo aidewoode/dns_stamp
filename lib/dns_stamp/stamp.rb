@@ -17,7 +17,7 @@ module DNSStamp
         @reader = Reader.new(data)
         attributes = parse_attributes
 
-        new(attributes)
+        new(**attributes)
       end
 
       def parse_attributes
