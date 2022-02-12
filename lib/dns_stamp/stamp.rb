@@ -2,6 +2,10 @@ module DNSStamp
   class Stamp
     include Decoder
 
+    def protocol_name
+      self.class.send(:protocol_name)
+    end
+
     class << self
       private
 
