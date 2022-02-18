@@ -1,4 +1,7 @@
 # DNS Stamp
+[![CI](https://github.com/aidewoode/dns_stamp/actions/workflows/ci.yml/badge.svg)](https://github.com/aidewoode/dns_stamp/actions/workflows/ci.yml)
+[![Coverage Status](https://coveralls.io/repos/github/aidewoode/dns_stamp/badge.svg?branch=master)](https://coveralls.io/github/aidewoode/dns_stamp?branch=master)
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
 
 Ruby implementation of [DNS Stamp](https://dnscrypt.info/stamps-specifications)
 
