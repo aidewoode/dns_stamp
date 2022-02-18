@@ -8,11 +8,11 @@ class DNSStamp::StampTest < Minitest::Test
   class SubStampWithParse < DNSStamp::Stamp
     PROTOCOL_ID = 0x00
 
-    def initialize(_attributes)
+    def initialize(attribute: "")
     end
 
     def self.parse_attributes
-      {}
+      {attribute: "test_attribute"}
     end
   end
 
