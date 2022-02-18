@@ -30,7 +30,7 @@ module DNSStamp
         {
           props: @reader.props,
           address: @reader.lp,
-          public_key: @reader.lp_raw,
+          public_key: @reader.lp_hex,
           provider_name: @reader.lp
         }
       end

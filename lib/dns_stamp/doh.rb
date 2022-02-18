@@ -40,7 +40,7 @@ module DNSStamp
         {
           props: @reader.props,
           address: @reader.lp,
-          hashes: @reader.vlp_raw,
+          hashes: @reader.vlp_hex,
           host_name: @reader.lp,
           path: @reader.lp,
           bootstrap_ips: @reader.vlp

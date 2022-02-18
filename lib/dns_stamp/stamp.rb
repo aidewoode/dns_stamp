@@ -22,6 +22,8 @@ module DNSStamp
         attributes = parse_attributes
 
         new(**attributes)
+      ensure
+        data.close
       end
 
       def parse_attributes

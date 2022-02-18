@@ -19,8 +19,6 @@ module DNSStamp
 
         validate_protocol(protocol_byte)
         parse(stamp_data)
-      ensure
-        stamp_data.close
       end
 
       private

@@ -22,13 +22,27 @@ module DNSStamp
       Props.decode(data.read(8))
     end
 
-    def lp_raw
-      length = data.getbyte
-      data.read(length)
+    def lp_hex
+      lp_raw.unpack1("H*")
     end
 
     def lp
       lp_raw.force_encoding("utf-8")
+    end
+
+    def vlp_hex
+      vlp_raw.map { |data| data.unpack1("H*") }
+    end
+
+    def vlp
+      vlp_raw.map { |data| data.force_encoding("utf-8") }
+    end
+
+    private
+
+    def lp_raw
+      length = data.getbyte
+      data.read(length)
     end
 
     def vlp_raw
@@ -45,12 +59,6 @@ module DNSStamp
       end
 
       vlp_data
-    end
-
-    def vlp
-      return vlp_raw if vlp_raw.empty?
-
-      vlp_raw.map { |data| data.force_encoding("utf-8") }
     end
   end
 end
